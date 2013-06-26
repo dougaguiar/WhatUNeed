@@ -1,4 +1,6 @@
 class PostsController < ApplicationController  
+  http_basic_authenticate_with name: "doa", password: "monga", except: [:index, :show]
+  
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
